@@ -1,21 +1,210 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+
+<head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>This CSS framework has a funny name so I go with this instead!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  </head>
-  <body>
-  <section class="section">
+    <title>Karl Mavko - Unreal Engine Portfolio</title>
+    <link rel="icon" type="svg" href="houndhelmet.svg" alt="Logo">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <script src="https://kit.fontawesome.com/7dc3015a44.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <style type="text/css">
+        :root {
+            --bg: #0e0600;
+            --card-bg: #0f0f0f;
+        }
+
+        body {
+            background: var(--bg);
+        }
+
+        .box {
+
+            background: var(--card-bg);
+        }
+
+
+        input::placeholder {
+            color: antiquewhite;
+        }
+
+        .navbar {
+            background: var(--card-bg);
+        }
+
+        .navbar-item {
+            color: ghostwhite;
+        }
+
+        /* Card start*/
+        .card {
+            overflow: hidden;
+            background: ghostwhite;
+            color: var(--bg);
+        }
+
+        .card.large {
+            border-radius: 5px;
+        }
+
+        .title.no-padding {
+            margin-bottom: 0 !important;
+        }
+
+        .footer {
+            background: var(--card-bg);
+            color: ghostwhite;
+        }
+
+        .footer p,
+        strong {
+            color: black;
+        }
+
+        .footer a:hover {
+            color: crimson;
+        }
+
+        .fa {
+            color: ghostwhite;
+            margin: 10px
+        }
+        .logo{
+
+            max-height: 4rem !important;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- START NAV -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="#">
+                    <img class="logo" src="houndhelmet.svg" alt="Logo">
+                </a>
+                <p class="navbar-item title is-marginless">
+                    Karl Mavko
+
+                </p>
+
+                <p class="navbar-item title is-marginless has-text-centered is-hidden-mobile" style="width: 100% !important;">
+                     Unreal Engine Portfolio
+                </p>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                  </a>
+            </div>
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    <!-- <a class="navbar-item is-active">
+                        Portfolio
+                    </a> -->
+                    <a class="navbar-item" href="https://www.linkedin.com/in/karl-m-b98594188/">
+                        Linkedin
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAV -->
+
     <div class="container">
-      <h1 class="title">
-        Hello World
-      </h1>
-      <p class="subtitle">
-        My first website with <strong>Bulma</strong>!
-      </p>
+        <div class="section">
+            <div class="columns">
+                <div class="column " style="padding-bottom: 0%;">
+                    <h1 class="subtitle is-marginless" style="color: ghostwhite;">Projects</h1><br>
+                </div>
+            </div>
+            <div id="app" class="row columns is-multiline">
+                <div v-for="card in cardData" key="card.id" class="column is-4">
+                    <div class="card large">
+                        <div class="card-image">
+                            <figure>
+
+
+
+                                    <video class="cardvideo" playsinline="" muted="" loop="">
+                                        <source type="video/mp4" src="https://i.imgur.com/sigC4Hk.mp4">
+                                    </video>
+                                
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media" style="margin-bottom: .75rem;"> 
+                                <div class="media-content has-text-centered">
+                                    <a class="title is-5 has-text-link-dark"
+                                    :href="card.project.link" style="color: #363636 !important;">{{card.project.title}}</a>
+                                    <p>
+                                        <span class="title is-6 no-padding">
+                                             {{card.project.role}}  </span> </p>
+                                    <!-- <p class="subtitle is-6">{{card.project.title}}</p> -->
+                                </div>
+                            </div>
+                            <div class="content">
+                                {{card.content}}
+                                <div class="background-icon"><span class="icon-twitter"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
-  </body>
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>
+                    <!-- <strong>Bulma</strong> CSS framework by <a href="http://jgthms.com">Jeremy Thomas</a>.
+                    The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. <br> -->
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let cardsData = [{
+            id: 1,
+            video: 'https://i.imgur.com/sigC4Hk.mp4',
+            project: {
+                title: 'Chess 3',
+                link: 'https://megafunk.itch.io/chess-3',
+                role: 'Code and Design'
+            },
+            content: 'The unwanted sequel to Chess 2! Blueprint project made in a weekend.'
+        }]
+
+        Vue.createApp({
+            data() {
+                return {
+                    cardData: cardsData
+                }
+            }
+        }).mount('#app')
+
+        $(document).ready(function() {
+            $(".cardvideo").on("mouseover", function(event) 
+            { 
+                this.play();
+
+            }).on('mouseout', function(event) 
+            {
+                this.pause();
+                this.currentTime = 0;
+            });
+        })
+    </script>
+</body>
+
 </html>

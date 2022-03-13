@@ -14,8 +14,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://unpkg.com/vue@3"></script>
     <style type="text/css">
+        html{
+
+            background-color: black;
+        }
         :root {
-            --bg: #0e0600;
+            --bg: #0c0018;
             --card-bg: #0f0f0f;
         }
 
@@ -76,7 +80,7 @@
         }
         .logo{
 
-            max-height: 4rem !important;
+            max-height: 3rem !important;
         }
 
     </style>
@@ -89,19 +93,18 @@
     <nav class="navbar">
         <div class="container">
             <div class="navbar-brand">
-                <a class="navbar-item" href="#">
+                <a class="navbar-item" href="#" style="padding-right: 3px;">
                     <img class="logo" src="houndhelmet.svg" alt="Logo">
                 </a>
-                <p class="navbar-item title is-marginless">
+                <p class="navbar-item title is-marginless is-size-1">
                     Karl Mavko
 
                 </p>
 
-                <p class="navbar-item title is-marginless has-text-centered is-hidden-mobile" style="width: 100% !important;">
-                     Unreal Engine Portfolio
-                </p>
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true">
+
+                    </span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                   </a>
@@ -111,6 +114,10 @@
                     <!-- <a class="navbar-item is-active">
                         Portfolio
                     </a> -->
+                    
+                <p class="navbar-item title is-marginless has-text-centered is-hidden-mobile" style="width: 100% !important;">
+                    Unreal Engine Portfolio
+               </p>
                     <a class="navbar-item" href="https://www.linkedin.com/in/karl-m-b98594188/">
                         Linkedin
                     </a>
@@ -136,7 +143,7 @@
 
 
                                     <video class="cardvideo" playsinline="" muted="" loop="">
-                                        <source type="video/mp4" src="https://i.imgur.com/sigC4Hk.mp4">
+                                        <source type="video/mp4" :src="card.video">
                                     </video>
                                 
                             </figure>
@@ -144,15 +151,15 @@
                         <div class="card-content">
                             <div class="media" style="margin-bottom: .75rem;"> 
                                 <div class="media-content has-text-centered">
-                                    <a class="title is-5 has-text-link-dark"
-                                    :href="card.project.link" style="color: #363636 !important;">{{card.project.title}}</a>
+                                    <a class="button title is-5 has-text-link-dark"
+                                    :href="card.project.link" style="color: #363636 !important; margin-bottom: .5rem;">{{card.project.title}}</a>
                                     <p>
                                         <span class="title is-6 no-padding">
                                              {{card.project.role}}  </span> </p>
                                     <!-- <p class="subtitle is-6">{{card.project.title}}</p> -->
                                 </div>
                             </div>
-                            <div class="content">
+                            <div class="content is-size-6" style="white-space: pre-wrap;">
                                 {{card.content}}
                                 <div class="background-icon"><span class="icon-twitter"></span></div>
                             </div>
@@ -178,12 +185,46 @@
             id: 1,
             video: 'https://i.imgur.com/sigC4Hk.mp4',
             project: {
-                title: 'Chess 3',
+                title: 'Chess 3 Gamejam',
                 link: 'https://megafunk.itch.io/chess-3',
-                role: 'Code and Design'
+                role: 'Programming and Design'
             },
-            content: 'The unwanted sequel to Chess 2! Blueprint project made in a weekend.'
-        }]
+            content: 'The unwanted gamejam sequel to the ancient classic! Blueprint project made in a weekend. And yes, Somebody made Chess 2!'
+        },
+        {
+            id: 2,
+            video: 'https://i.imgur.com/ymKtzyW.mp4',
+            project: {
+                title: 'ECS Projectiles Plugin',
+                link: 'https://github.com/EmpiresCommunity/ECSProjectiles',
+                role: 'Programming'
+            },
+            content: 'FLECS combined with Niagara to make a high performance fully simulated projectile and VFX system! \n Open source!'
+        },
+        {
+            id: 3,
+            video: 'https://i.imgur.com/H49jnAU.mp4',
+            project: {
+                title: 'Empires UE4 Remake',
+                link: 'https://www.empiresmod.com/team/',
+                role: 'Gameplay Programming'
+            },
+            content: 'Multiplayer shooter with 64 player servers and commanders that can place buildings! I the networked grenades system and various fixes!'
+        }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    ]
 
         Vue.createApp({
             data() {

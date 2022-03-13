@@ -10,7 +10,12 @@
 
 
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
-    <script src="https://kit.fontawesome.com/7dc3015a44.js" crossorigin="anonymous"></script>
+<!-- fonts -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+    </style> 
+
+    <script src="https://kit.fontawesome.com/800fd0f8b9.js" crossorigin="anonymous"></script>   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://unpkg.com/vue@3"></script>
     <style type="text/css">
@@ -82,6 +87,20 @@
 
             max-height: 3rem !important;
         }
+        .name{
+
+            font-family: 'Roboto', sans-serif;
+            /* color: #ff6f13ff; */
+            color:ghostwhite;
+        }
+        .cardvideo{
+
+            object-fit: cover;
+            width: 100%;
+            height: 258px;
+        }
+
+
 
     </style>
 
@@ -96,7 +115,7 @@
                 <a class="navbar-item" href="#" style="padding-right: 3px;">
                     <img class="logo" src="houndhelmet.svg" alt="Logo">
                 </a>
-                <p class="navbar-item title is-marginless is-size-1">
+                <p class="navbar-item title is-marginless is-size-1 name">
                     Karl Mavko
 
                 </p>
@@ -119,7 +138,7 @@
                     Unreal Engine Portfolio
                </p>
                     <a class="navbar-item" href="https://www.linkedin.com/in/karl-m-b98594188/">
-                        Linkedin
+                        <i class="fa-brands fa-linkedin mr-1"></i>    Linkedin
                     </a>
                 </div>
             </div>
@@ -142,7 +161,7 @@
 
 
 
-                                    <video class="cardvideo" playsinline="" muted="" loop="">
+                                    <video class="cardvideo " playsinline="" muted="" loop="">
                                         <source type="video/mp4" :src="card.video">
                                     </video>
                                 
@@ -151,8 +170,8 @@
                         <div class="card-content">
                             <div class="media" style="margin-bottom: .75rem;"> 
                                 <div class="media-content has-text-centered">
-                                    <a class="button title is-5 has-text-link-dark"
-                                    :href="card.project.link" style="color: #363636 !important; margin-bottom: .5rem;">{{card.project.title}}</a>
+                                    <a class="button title is-5 is-info"
+                                    :href="card.project.link" style="color: ghostwhite !important; margin-bottom: .5rem;">{{card.project.title}}</a>
                                     <p>
                                         <span class="title is-6 no-padding">
                                              {{card.project.role}}  </span> </p>
@@ -189,7 +208,7 @@
                 link: 'https://megafunk.itch.io/chess-3',
                 role: 'Programming and Design'
             },
-            content: 'The unwanted gamejam sequel to the ancient classic! Blueprint project made in a weekend. And yes, Somebody made Chess 2!'
+            content: 'The unwanted gamejam sequel to the ancient classic. Blueprint project made in a weekend. And yes, Somebody made Chess 2!'
         },
         {
             id: 2,
@@ -199,7 +218,7 @@
                 link: 'https://github.com/EmpiresCommunity/ECSProjectiles',
                 role: 'Programming'
             },
-            content: 'FLECS combined with Niagara to make a high performance + data oriented projectile and VFX system! \n Open source!'
+            content: 'FLECS combined with Niagara to make a high performance fully simulated projectile and VFX system. Open source.'
         },
         {
             id: 3,
@@ -209,7 +228,7 @@
                 link: 'https://www.empiresmod.com/team/',
                 role: 'Gameplay Programming'
             },
-            content: 'Multiplayer shooter with 64 player servers and commanders that can place buildings! I made the networked grenades system and various fixes!'
+            content: 'Multiplayer shooter with 64 player servers and commanders that can place buildings. I the networked grenades system and various fixes.'
         }
     
     

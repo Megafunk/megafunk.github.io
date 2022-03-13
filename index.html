@@ -24,8 +24,9 @@
             background-color: black;
         }
         :root {
-            --bg: #0c0018;
+            --bg: #333335;
             --card-bg: #0f0f0f;
+            --othercolor:  #54DBBB;
         }
 
         body {
@@ -53,7 +54,7 @@
         /* Card start*/
         .card {
             overflow: hidden;
-            background: ghostwhite;
+            background-color: #0f0f0f;
             color: var(--bg);
         }
 
@@ -87,17 +88,38 @@
 
             max-height: 3rem !important;
         }
+        .title,.content{
+            color:ghostwhite;
+
+        }
+        .logocontainer{
+
+            /* border-radius: 2px !important;
+            border-color: var(--othercolor) !important; */
+        }
+
+        
         .name{
 
             font-family: 'Roboto', sans-serif;
             /* color: #ff6f13ff; */
-            color:ghostwhite;
         }
         .cardvideo{
 
             object-fit: cover;
             width: 100%;
             height: 258px;
+        }
+        .button{
+            color: black !important;
+            background-color: var(--othercolor) !important;
+
+
+        }
+        .button.is-info.is-hovered, .button.is-info:hover{
+            background-color: var(--othercolor) !important;
+
+
         }
 
 
@@ -112,7 +134,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="navbar-brand">
-                <a class="navbar-item" href="#" style="padding-right: 3px;">
+                <a class="navbar-item logocontainer" href="#" style="padding-right: 3px;">
                     <img class="logo" src="houndhelmet.svg" alt="Logo">
                 </a>
                 <p class="navbar-item title is-marginless is-size-1 name">
@@ -171,7 +193,7 @@
                             <div class="media" style="margin-bottom: .75rem;"> 
                                 <div class="media-content has-text-centered">
                                     <a class="button title is-5 is-info"
-                                    :href="card.project.link" style="color: ghostwhite !important; margin-bottom: .5rem;">{{card.project.title}}</a>
+                                    :href="card.project.link" style="margin-bottom: .5rem;">{{card.project.title}}</a>
                                     <p>
                                         <span class="title is-6 no-padding">
                                              {{card.project.role}}  </span> </p>
@@ -208,7 +230,7 @@
                 link: 'https://megafunk.itch.io/chess-3',
                 role: 'Programming and Design'
             },
-            content: 'The unwanted gamejam sequel to the ancient classic. Blueprint project made in a weekend. And yes, Somebody made Chess 2!'
+            content: 'The unwanted gamejam sequel to the ancient classic. Blueprint project made in a weekend. And yes, somebody made Chess 2!'
         },
         {
             id: 2,
@@ -228,21 +250,8 @@
                 link: 'https://www.empiresmod.com/team/',
                 role: 'Gameplay Programming'
             },
-            content: 'Multiplayer shooter with 64 player servers and commanders that can place buildings. I the networked grenades system and various fixes.'
+            content: 'Multiplayer shooter with 64 player servers and commanders that place buildings. I created the networked grenades system and various fixes.'
         }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     ]
 
         Vue.createApp({

@@ -71,19 +71,21 @@
             color: ghostwhite;
         }
 
-        .footer p,
+        .footer p{
+            color: ghostwhite;
+        }
         strong {
-            color: black;
+            color: ghostwhite;
         }
 
         .footer a:hover {
-            color: crimson;
+            /* color: crimson; */
         }
 
         .fa {
             color: ghostwhite;
             margin: 10px
-        }
+        } 
         .logo{
 
             max-height: 3rem !important;
@@ -121,10 +123,10 @@
 
 
         }
-
         .fa-brands{
             color: var(--othercolor);
         }
+
 
 
     </style>
@@ -159,11 +161,14 @@
                         Portfolio
                     </a> -->
                     
-                <p class="navbar-item title is-marginless has-text-centered is-hidden-mobile" style="width: 100% !important;">
-                    Unreal Engine Portfolio
+                <p class="has-text-weight-normal navbar-item title is-marginless has-text-centered is-hidden-mobile" style="width: 100% !important;">
+                    Unreal Engine <span class="has-text-weight-light ml-2">Portfolio</span>
                </p>
                     <a class="navbar-item" href="https://www.linkedin.com/in/karl-m-b98594188/">
                         <i class="fa-brands fa-linkedin mr-1"></i>    Linkedin
+                    </a>
+                    <a class="navbar-item" href="https://github.com/Megafunk/">
+                        <i class="fa-brands fa-github mr-1"></i>    GitHub
                     </a>
                 </div>
             </div>
@@ -175,8 +180,12 @@
         <div class="section">
             <div class="columns">
                 <div class="column " style="padding-bottom: 0%;">
-                    <h1 class="subtitle is-marginless" style="color: ghostwhite;">Projects</h1><br>
-                </div>
+                    <p class="subtitle is-marginless" style="color: ghostwhite;">Projects</p>
+                    <p class="is-size-6 is-hidden-touch" style="color: ghostwhite;">Hover to play videos!</p>
+                    <p class="is-size-6 is-hidden-desktop" style="color: ghostwhite;">Tap to play videos!</p>
+
+                    </div>
+   
             </div>
             <div id="app" class="row columns is-multiline">
                 <div v-for="card in cardData" key="card.id" class="column is-4">
@@ -217,26 +226,15 @@
         <div class="container">
             <div class="content has-text-centered">
                 <p>
-                    <!-- <strong>Bulma</strong> CSS framework by <a href="http://jgthms.com">Jeremy Thomas</a>.
-                    The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. <br> -->
+                    <i class="fa-solid fa-envelope mr-1"></i> </strong> karlmavko@gmail.com <br> 
                 </p>
             </div>
         </div>
     </footer>
 
     <script>
-        let cardsData = [{
-            id: 1,
-            video: 'https://i.imgur.com/sigC4Hk.mp4',
-            project: {
-                title: 'Chess 3 Gamejam',
-                link: 'https://megafunk.itch.io/chess-3',
-                role: 'Programming and Design'
-            },
-            content: 'The unwanted gamejam sequel to the ancient classic. Blueprint project made in a weekend. And yes, somebody made Chess 2!'
-        },
+        let cardsData = [
         {
-            id: 2,
             video: 'https://i.imgur.com/ymKtzyW.mp4',
             project: {
                 title: 'ECS Projectiles Plugin',
@@ -245,8 +243,10 @@
             },
             content: 'FLECS combined with Niagara to make a high performance fully simulated projectile and VFX system. Open source.'
         },
+
+
+
         {
-            id: 3,
             video: 'https://i.imgur.com/H49jnAU.mp4',
             project: {
                 title: 'Empires UE4 Remake',
@@ -254,7 +254,28 @@
                 role: 'Gameplay Programming'
             },
             content: 'Multiplayer shooter with 64 player servers and commanders that place buildings. I created the networked grenades system and various fixes.'
+        },
+        {
+            video: 'https://i.imgur.com/SURHtBC.mp4',
+            project: {
+                title: 'Community Mass Sample',
+                link: 'https://github.com/Megafunk/MassSample/',
+                role: 'Programming and Documentation'
+            },
+            content: 'Mass is a new ECS library introduced by UE5. This is a public sample demonstrating how to set it up and create new features for it. WIP!'
+        },
+        {
+            video: 'https://i.imgur.com/sigC4Hk.mp4',
+            project: {
+                title: 'Chess 3 Gamejam',
+                link: 'https://megafunk.itch.io/chess-3',
+                role: 'Programming and Design'
+            },
+            content: 'The unwanted gamejam sequel to the ancient classic. Blueprint project made in a weekend. And yes, somebody made Chess 2!'
         }
+
+
+
     ]
 
         Vue.createApp({

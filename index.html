@@ -8,17 +8,13 @@
     <title>Karl Mavko - Unreal Engine Portfolio</title>
     <link rel="icon" type="svg" href="houndhelmet.svg" alt="Logo">
 
-
-    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
-<!-- fonts -->
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
-    </style> 
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/800fd0f8b9.js" crossorigin="anonymous"></script>   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://unpkg.com/vue@3"></script>
-    <style type="text/css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
         html{
 
             background-color: black;
@@ -126,6 +122,14 @@
         .fa-brands{
             color: var(--othercolor);
         }
+        .dropdown-item{
+            color: ghostwhite;
+            background-color: var(--card-bg);
+        }
+        .dropdown-content{
+            color: ghostwhite;
+            background-color: var(--card-bg) !important;
+        }
 
 
 
@@ -147,21 +151,39 @@
 
                 </p>
 
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-                    <span aria-hidden="true">
 
-                    </span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                  </a>
+                <div class="navbar-item ml-auto is-hidden-desktop">
+                    <p class="title is-marginless has-text-weight-normal has-text-centered is-hidden-mobile">
+                        Unreal Engine</p>  
+                        <p class="title is-marginless has-text-weight-light ml-2 mr-2 is-hidden-mobile">Portfolio</p>
+                    <div class="dropdown is-right">
+                    <div class="dropdown-trigger">
+                      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                        <span class="icon is-small">
+                          <i class="fas fa-bars" aria-hidden="true"></i>
+                        </span>
+                      </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                      <div class="dropdown-content">
+                        <a class="dropdown-item" href="https://www.linkedin.com/in/karl-m-b98594188/">
+                            <i class="fa-brands fa-linkedin mr-1"></i>    Linkedin
+                        </a>
+                        <a class="dropdown-item" href="https://github.com/Megafunk/">
+                            <i class="fa-brands fa-github mr-1"></i>    GitHub
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
             </div>
-            <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-menu">
                 <div class="navbar-end">
-                    <!-- <a class="navbar-item is-active">
-                        Portfolio
-                    </a> -->
+
                     
-                <p class="has-text-weight-normal navbar-item title is-marginless has-text-centered is-hidden-mobile" style="width: 100% !important;">
+                <p class="navbar-item title is-marginless has-text-weight-normal has-text-centered ">
                     Unreal Engine <span class="has-text-weight-light ml-2">Portfolio</span>
                </p>
                     <a class="navbar-item" href="https://www.linkedin.com/in/karl-m-b98594188/">
@@ -176,10 +198,13 @@
     </nav>
     <!-- END NAV -->
 
+    
     <div class="container">
         <div class="section">
             <div class="columns">
                 <div class="column " style="padding-bottom: 0%;">
+                    <p class="title is-hidden-tablet mt-0 has-text-centered" style="color: ghostwhite;">Portfolio</p>
+
                     <p class="subtitle is-marginless" style="color: ghostwhite;">Projects</p>
                     <p class="is-size-6 is-hidden-touch" style="color: ghostwhite;">Hover to play videos!</p>
                     <p class="is-size-6 is-hidden-desktop" style="color: ghostwhite;">Tap to play videos!</p>
@@ -297,6 +322,16 @@
                 this.currentTime = 0;
             });
         })
+
+
+        $(".dropdown").on('click', function(event){
+
+            $(".dropdown").toggleClass("is-active");
+
+
+
+        });
+    
     </script>
 </body>
 
